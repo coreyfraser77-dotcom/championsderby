@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Champions Derby</title>
+  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#000; color:#0f0; text-align:center; }
+    h1 { font-size:3em; margin:20px; color:#0f0; }
+    #welcome { font-size:1.5em; margin:20px; }
+    #qr { width:300px; height:300px; margin:20px auto; background:#fff; } /* Placeholder for QR */
+    #races { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:20px; }
+    .race-card { background:#111; padding:15px; border:2px solid #0f0; border-radius:8px; min-width:200px; }
+    #leaderboard { margin:40px auto; max-width:800px; background:#111; padding:20px; border-radius:8px; }
+    .player { display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #333; font-size:1.2em; }
+    #admin-link { color:#0f0; text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <h1>Champions Derby</h1>
+  <div id="welcome">Welcome! Beat the bosses. Pick smart. Win big.</div>
+  
+  <div id="qr">
+    <!-- QR code placeholder - generate real one at https://www.qrcode-monkey.com/ with your site URL -->
+    <p>Scan to join & pick horses</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://your-netlify-url.netlify.app" alt="QR Code">
+  </div>
+
+  <div id="races">
+    <div class="race-card">
+      <h2>Race 1</h2>
+      <p>Time: 12:45</p>
+    </div>
+    <div class="race-card">
+      <h2>Race 2</h2>
+      <p>Time: 1:15</p>
+    </div>
+    <div class="race-card">
+      <h2>Race 3</h2>
+      <p>Time: 1:45</p>
+    </div>
+    <div class="race-card">
+      <h2>Race 4</h2>
+      <p>Time: 2:15</p>
+    </div>
+  </div>
+
+  <div id="leaderboard">
+    <h2>Live Leaderboard</h2>
+    <div id="players">
+      <!-- Placeholder - real leaderboard would update here -->
+      <div class="player"><span>Corey</span><span>18 pts</span></div>
+      <div class="player"><span>LongShotLarry</span><span>13 pts</span></div>
+    </div>
+  </div>
+
+  <p>Scoring: 10 pts for 1st • 5 pts for 2nd • 3 pts for 3rd</p>
+
+  <p>For admin (you): Go to <a href="/admin" id="admin-link">your-url.netlify.app/admin</a> (password: derby)</p>
+
+  <script>
+    // Basic name entry prompt on load (for player view)
+    if (!location.pathname.includes('/admin')) {
+      let name = prompt("Enter your nickname for the leaderboard:");
+      if (name) alert("Welcome, " + name + "! Your name is now on the board.");
+    }
+  </script>
+</body>
+</html>
